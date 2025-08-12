@@ -37,6 +37,13 @@ struct CounterView: View {
         Divider()
 
         ModelCounter(model: model)
+            .onAppear(perform: onAppear)
+    }
+}
+//CounterView+Lifecycle.swift
+extension CounterView{
+    func onAppear(){
+    
     }
 }
 
