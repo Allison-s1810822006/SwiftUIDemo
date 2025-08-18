@@ -26,28 +26,37 @@ struct StudentView:View{
                 return // early return
             }
             //2.URLSession get  students feom server
-            let (data,response) = try await
+            let (data,_) = try await
             URLSession.shard.data(from:url)
-            print()
+    
             //3.Decode json
             let students = try
-            JSONDecoder()
-                .decode(JSONRespones.self)
-        from:
+            JSONDecoder().decode(JSONRespones.self,from: data)
+            
+            
+            //4.Display in UI
+            self.students = JsonResponse.data.students
+        }catch{
+            print("Error:\(error.localizedDescription)")
         }
     }
 }
+struct JSONResponse : Codable{
+    var success : Bool
+    var data : JSONData
+}
+                  
 struct JSONData:Codable{
-    var
+    var students: [Student]
 }
 
 struct Student: Codable, Identifiable{
     var id: String
-    var name: String
+    var full_name: String
     
-    var name: String{
-        fullname
-    }
+//    var name: String{
+//        fullname
+//    }
 }
 #Preview {
     StudentView()
