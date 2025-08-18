@@ -75,9 +75,15 @@ class NetworkManager: ObservableObject {
     }
     
     func fetchUsers() async throws -> [User] {
+        //guard對應if
         guard let url = URL(string: "https://jsonplaceholder.typicode.com/users") else {
             throw NetworkError.invalidURL
         }
+//        if let url = URL(string: "https://jsonplaceholder.typicode.com/users"){
+//
+//        }
+        
+        
         return try await fetch([User].self, from: url)
     }
     
