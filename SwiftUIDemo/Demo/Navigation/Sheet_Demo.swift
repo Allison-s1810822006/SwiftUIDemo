@@ -12,10 +12,12 @@ struct Sheet_Demo: View {
                 Text("Show Sheet")
             }
         }
+        //sheet較常使用
         .sheet(isPresented: $isShowing) {
             Text("Detail")
                 .presentationDetents([.medium, .fraction(0.33)])
                 .presentationDragIndicator(.visible)
+                
         }
     }
 }
