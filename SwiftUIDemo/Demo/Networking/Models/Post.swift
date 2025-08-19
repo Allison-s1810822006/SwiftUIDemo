@@ -1,3 +1,9 @@
+//
+//  Post.swift
+//  SwiftUIDemo
+//
+//  Created by 訪客使用者 on 2025/8/19.
+//
 import Foundation
 
 struct Post: Codable, Identifiable {
@@ -14,3 +20,4 @@ struct Comment: Codable, Identifiable {
     let email: String
     let body: String
 }
+

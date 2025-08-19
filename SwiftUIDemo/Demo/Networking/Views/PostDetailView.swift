@@ -1,3 +1,10 @@
+//
+//  PostDetailView.swift
+//  SwiftUIDemo
+//
+//  Created by 訪客使用者 on 2025/8/19.
+//
+
 import SwiftUI
 
 struct PostListView: View {

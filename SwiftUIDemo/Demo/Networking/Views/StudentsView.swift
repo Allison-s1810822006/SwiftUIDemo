@@ -2,6 +2,12 @@
 //  StudentsView.swift
 //  SwiftUIDemo
 //
+//  Created by 訪客使用者 on 2025/8/19.
+//
+//
+//  StudentsView.swift
+//  SwiftUIDemo
+//
 //  Created by Harry Ng on 8/18/25.
 //
 
@@ -21,10 +27,8 @@ struct StudentsView: View {
 
     func loadStudents() async {
         do {
-            let baseURL = "https://learnify-api.zeabur.app"
-
             // 1. URL
-            guard let url = URL(string: "\(baseURL)/api/auto/students") else {
+            guard let url = URL(string: "https://jsonplaceholder.typicode.com/users") else {
                 return // early return
             }
 
@@ -32,34 +36,22 @@ struct StudentsView: View {
             let (data, _) = try await URLSession.shared.data(from: url)
 
             // 3. Decode json
-            let jsonResponse = try JSONDecoder().decode(JSONResponse.self, from: data)
+            let students = try JSONDecoder().decode([Student].self, from: data)
 
             // 4. Display in UI
-            self.students = jsonResponse.data.students
+            self.students = students
         } catch {
             print("Error: \(error.localizedDescription)")
         }
     }
 }
 
-struct JSONResponse: Codable {
-    var success: Bool
-    var data: JSONData
-}
-
-struct JSONData: Codable {
-    var students: [Student]
-}
-
 struct Student: Codable, Identifiable {
-    var id: String
-    var full_name: String
-
-    var name: String {
-        full_name
-    }
+    var id: Int
+    var name: String
 }
 
 #Preview {
     StudentsView()
 }
+

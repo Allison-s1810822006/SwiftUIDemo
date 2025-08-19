@@ -288,3 +288,4 @@ After completing this lesson, students will have:
 - **Dog API**: Random dog images
 
 This lesson provides a comprehensive introduction to networking in SwiftUI while building practical, reusable components that students can reference and extend in their future projects.
+

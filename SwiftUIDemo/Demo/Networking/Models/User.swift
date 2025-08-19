@@ -1,3 +1,9 @@
+//
+//  User.swift
+//  SwiftUIDemo
+//
+//  Created by 訪客使用者 on 2025/8/19.
+//
 import Foundation
 
 struct User: Codable, Identifiable {
@@ -29,3 +35,4 @@ struct Company: Codable {
     let catchPhrase: String
     let bs: String
 }
+
